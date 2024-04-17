@@ -15,7 +15,7 @@ namespace ProjectSomething.Controllers
         }
         private void FixedUpdate()
         {
-            MovePlayer(_input.GetInput());
+            MovePosition(_input.GetInput());
         }
 
         public void SetInputController(IInput input)
@@ -28,7 +28,7 @@ namespace ProjectSomething.Controllers
             _actorData = actorData;
         }
 
-        private void MovePlayer(Vector2 input)
+        private void MovePosition(Vector2 input)
         {
             _rigidbody.MovePosition(_rigidbody.position + new Vector3(input.x, 0, input.y) * _actorData.MoveSpeed * Time.fixedDeltaTime);
         }
