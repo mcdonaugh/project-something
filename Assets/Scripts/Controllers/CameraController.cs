@@ -13,14 +13,17 @@ namespace ProjectSomething.Controllers
         {
             _actorController = actorController;
             _gimbalPosition = actorController.transform.GetChild(0);
+
+            _gimbalPosition.localPosition = new Vector3(
+            _gimbalPosition.localPosition.x,
+            _gimbalPosition.localPosition.y + _height,
+            _gimbalPosition.localPosition.z + _depth);
         }
 
         private void LateUpdate()
         {
-            transform.position = new Vector3(_gimbalPosition.position.x, _actorController.transform.position.y + _height, _gimbalPosition.position.z);
+            transform.position = new Vector3(_gimbalPosition.position.x, _gimbalPosition.position.y, _gimbalPosition.position.z);
             transform.LookAt(_actorController.transform);
-            float mouseXPosition = Input.GetAxis("Mouse X");
-            Debug.Log(mouseXPosition);
         }
 
         private void OnDrawGizmos()
