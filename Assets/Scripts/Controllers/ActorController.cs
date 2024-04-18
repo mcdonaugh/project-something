@@ -5,6 +5,7 @@ namespace ProjectSomething.Controllers
 {
     public class ActorController : MonoBehaviour
     {
+        [SerializeField] private float _horizontalSpeed = 2f;
         private IInput _input;
         private ActorData _actorData;
         private Rigidbody _rigidbody;
@@ -16,6 +17,7 @@ namespace ProjectSomething.Controllers
         private void FixedUpdate()
         {
             MovePosition(_input.GetInput());
+            MoveRotation(_input.GetInput());
         }
 
         public void SetInputController(IInput input)
@@ -30,7 +32,14 @@ namespace ProjectSomething.Controllers
 
         private void MovePosition(Vector2 input)
         {
-            _rigidbody.MovePosition(_rigidbody.position + new Vector3(input.x, 0, input.y) * _actorData.MoveSpeed * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(_rigidbody.position + (transform.forward * input.y + transform.right * input.x).normalized * _actorData.MoveSpeed * Time.fixedDeltaTime);
+        }
+
+        private void MoveRotation(Vector2 input)
+        {
+            Vector3 rotation = new Vector3(0, transform.eulerAngles.y + Input.GetAxis("Mouse X") * _actorData.RotationSpeed, 0);
+            Quaternion quaternion = Quaternion.Euler(rotation);
+            _rigidbody.MoveRotation(quaternion);
         }
     }
 }

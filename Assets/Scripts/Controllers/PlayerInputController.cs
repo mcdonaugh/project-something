@@ -36,5 +36,17 @@ namespace ProjectSomething.Interfaces
 
             return input.normalized;
         }
+
+        public void EnableCursor()
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        public void DisableCursor()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }
