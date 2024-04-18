@@ -5,7 +5,7 @@ namespace ProjectSomething.Controllers
 {
     public class ActorController : MonoBehaviour
     {
-        [SerializeField] private float _horizontalSpeed = 2f;
+        [SerializeField] private Animator _animator;
         private IInput _input;
         private ActorData _actorData;
         private Rigidbody _rigidbody;
@@ -33,6 +33,9 @@ namespace ProjectSomething.Controllers
         private void MovePosition(Vector2 input)
         {
             _rigidbody.MovePosition(_rigidbody.position + (transform.forward * input.y + transform.right * input.x).normalized * _actorData.MoveSpeed * Time.fixedDeltaTime);
+            float i = Mathf.Max(Mathf.Abs(input.x),Mathf.Abs(input.y));
+            _animator.SetFloat("Input", i);
+            Debug.Log(i);
         }
 
         private void MoveRotation(Vector2 input)

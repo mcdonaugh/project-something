@@ -1,4 +1,4 @@
-using ProjectSomething.Interfaces;
+using ProjectSomething.Player;
 using UnityEngine;
 
 namespace ProjectSomething.Controllers

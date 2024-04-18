@@ -1,7 +1,8 @@
 using UnityEngine;
 using ProjectSomething.Interfaces;
+using ProjectSomething.Controllers;
 
-namespace ProjectSomething.Controllers
+namespace ProjectSomething.Player
 {
     public class PlayerInstallerController : MonoBehaviour
     {

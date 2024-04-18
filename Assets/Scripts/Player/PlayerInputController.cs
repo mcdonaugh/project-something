@@ -1,6 +1,7 @@
 using UnityEngine;
+using ProjectSomething.Interfaces;
 
-namespace ProjectSomething.Interfaces
+namespace ProjectSomething.Player
 {
     public class PlayerInputController : IInput
     {

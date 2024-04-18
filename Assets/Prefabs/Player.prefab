@@ -459,8 +459,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3913308981331827326}
+  - component: {fileID: 2145098840019041950}
   m_Layer: 0
-  m_Name: mini simple skeleton_01
+  m_Name: ModelView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,6 +492,27 @@ Transform:
   - {fileID: 7233061029563783325}
   m_Father: {fileID: 6854807041494538050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2145098840019041950
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097445181461723463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 49545e361133ba34183e5ec927e9a22c, type: 3}
+  m_Controller: {fileID: 9100000, guid: 69ce5dd747afb75488c00ed0f554f1d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2113703283777339508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,8 +1508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6854807041494538050}
-  - component: {fileID: 8105179600605004704}
-  - component: {fileID: 31507073139974668}
   - component: {fileID: 3869872459278485930}
   - component: {fileID: 8264180401674187730}
   - component: {fileID: 2327893613057841810}
@@ -1507,7 +1527,7 @@ Transform:
   m_GameObject: {fileID: 6757280395046394996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1515,56 +1535,6 @@ Transform:
   - {fileID: 3913308981331827326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8105179600605004704
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6757280395046394996}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &31507073139974668
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6757280395046394996}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3869872459278485930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1584,8 +1554,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.45044744, y: 1.5443397, z: 1}
+  m_Center: {x: 0.018775046, y: 0.27216983, z: 0}
 --- !u!54 &8264180401674187730
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1625,7 +1595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6598754f40d1b4834acb45026c80720b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalSpeed: 2
+  _animator: {fileID: 2145098840019041950}
 --- !u!1 &7056755410497428684
 GameObject:
   m_ObjectHideFlags: 0
