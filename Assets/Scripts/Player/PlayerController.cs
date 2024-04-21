@@ -13,9 +13,7 @@ namespace ProjectSomething.Player
         {
             if(_input.InteractionKeyPressed() && _interactable != null)
             {
-                ChangeAnimation("Interact");
                 _interactable.Interact();
-                ChangeAnimation("Idle");
             }  
         }
 
@@ -34,5 +32,6 @@ namespace ProjectSomething.Player
         {
             _interactable = null;
         }
+
     }
 }

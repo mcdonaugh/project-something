@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b6484ca59834ed3aad408235946680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: -4199444541153486796, guid: a87451ff76ab24523ad75397dce1f6db, type: 3}
+  _playerController: {fileID: 8615404400902623447, guid: a87451ff76ab24523ad75397dce1f6db, type: 3}
   _playerData: {fileID: 11400000, guid: 4aa286f69105447e4a8a531c148a6697, type: 2}
   _cameraController: {fileID: 963194229}
   _gameStateController: {fileID: 1164850458}

@@ -4263,8 +4263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195614452340031952}
-  - component: {fileID: 1665509977129365321}
-  - component: {fileID: -4199444541153486796}
+  - component: {fileID: 8615404400902623447}
   - component: {fileID: 3701501005932157969}
   - component: {fileID: 8970533621150609473}
   m_Layer: 0
@@ -4291,28 +4290,7 @@ Transform:
   - {fileID: 3293610119267241381}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1665509977129365321
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007617720626797418}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0308cf4e83cf517488b60af58b290fe0, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2be64f57d7d213648aa9b2e5e8e0a39b, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-4199444541153486796
+--- !u!114 &8615404400902623447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5917,7 +5895,7 @@ GameObject:
   - component: {fileID: 3293610119267241381}
   - component: {fileID: 3044426242064999228}
   m_Layer: 0
-  m_Name: MC01
+  m_Name: Character Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

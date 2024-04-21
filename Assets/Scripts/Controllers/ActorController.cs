@@ -67,12 +67,6 @@ namespace ProjectSomething.Controllers
         
         protected void ChangeAnimation(string animation, float crossfade = 0.2f)
         {
-            if (_currentAnimation == "Interact")
-            {
-                Debug.Log("Interact Animation Play");
-                return;
-            }
-
             if (_currentAnimation != animation)
             {   
                 _currentAnimation = animation;
