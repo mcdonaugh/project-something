@@ -9,6 +9,7 @@ namespace ProjectSomething.Controllers
         protected IInput _input;
         private ActorData _actorData;
         private Rigidbody _rigidbody;
+        private string _currentAnimation = "";
 
         private void Awake()
         {
@@ -34,8 +35,27 @@ namespace ProjectSomething.Controllers
         private void MovePosition(Vector2 input)
         {
             _rigidbody.MovePosition(_rigidbody.position + (transform.forward * input.y + transform.right * input.x).normalized * _actorData.MoveSpeed * Time.fixedDeltaTime);
-            float i = Mathf.Max(Mathf.Abs(input.x),Mathf.Abs(input.y));
-            _animator.SetFloat("Input", i);
+
+            if (input.y > 0)
+            {
+                ChangeAnimation("Move Forward");
+            }
+            else if (input.y < 0)
+            {
+                ChangeAnimation("Move Backward");
+            }
+            else if (input.x > 0)
+            {
+                ChangeAnimation("Move Right");
+            }
+            else if (input.x < 0)
+            {
+                ChangeAnimation("Move Left");
+            }
+            else
+            {
+                ChangeAnimation("Idle");
+            }
         }
 
         private void MoveRotation(Vector2 input)
@@ -43,6 +63,21 @@ namespace ProjectSomething.Controllers
             Vector3 rotation = new Vector3(0, transform.eulerAngles.y + Input.GetAxis("Mouse X") * _actorData.RotationSpeed, 0);
             Quaternion quaternion = Quaternion.Euler(rotation);
             _rigidbody.MoveRotation(quaternion);
+        }
+        
+        protected void ChangeAnimation(string animation, float crossfade = 0.2f)
+        {
+            if (_currentAnimation == "Interact")
+            {
+                Debug.Log("Interact Animation Play");
+                return;
+            }
+
+            if (_currentAnimation != animation)
+            {   
+                _currentAnimation = animation;
+                _animator.CrossFade(animation, crossfade);
+            }
         }
     }
 }

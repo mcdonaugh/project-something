@@ -1,6 +1,7 @@
 using UnityEngine;
 using ProjectSomething.Controllers;
 using ProjectSomething.Interfaces;
+using System.Collections;
 
 namespace ProjectSomething.Player
 {
@@ -12,7 +13,9 @@ namespace ProjectSomething.Player
         {
             if(_input.InteractionKeyPressed() && _interactable != null)
             {
+                ChangeAnimation("Interact");
                 _interactable.Interact();
+                ChangeAnimation("Idle");
             }  
         }
 
