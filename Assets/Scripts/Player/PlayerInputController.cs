@@ -5,7 +5,7 @@ namespace ProjectSomething.Player
 {
     public class PlayerInputController : IInput
     {
-        public Vector2 GetInput()
+        public Vector2 GetAxisInput()
         {
             Vector2 input = new Vector2();
 
@@ -36,6 +36,11 @@ namespace ProjectSomething.Player
             }
 
             return input.normalized;
+        }
+
+        public bool InteractionKeyPressed()
+        {
+            return Input.GetKeyDown(KeyCode.E);
         }
 
         public void EnableCursor()
