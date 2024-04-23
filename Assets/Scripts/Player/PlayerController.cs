@@ -1,7 +1,6 @@
 using UnityEngine;
 using ProjectSomething.Controllers;
 using ProjectSomething.Interfaces;
-using System.Collections;
 
 namespace ProjectSomething.Player
 {
@@ -13,6 +12,7 @@ namespace ProjectSomething.Player
         {
             if(_input.InteractionKeyPressed() && _interactable != null)
             {
+                _animator.Play("Interact");
                 _interactable.Interact();
             }  
         }
@@ -24,7 +24,6 @@ namespace ProjectSomething.Player
             if (interactable != null)
             {
                 _interactable = interactable;
-                Debug.Log(_interactable);
             }
         }
 

@@ -5,7 +5,7 @@ namespace ProjectSomething.Controllers
 {
     public class ActorController : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
+        [SerializeField] protected Animator _animator;
         protected IInput _input;
         private ActorData _actorData;
         private Rigidbody _rigidbody;
@@ -66,7 +66,7 @@ namespace ProjectSomething.Controllers
         }
         
         protected void ChangeAnimation(string animation, float crossfade = 0.2f)
-        {
+        {   
             if (_currentAnimation != animation)
             {   
                 _currentAnimation = animation;
