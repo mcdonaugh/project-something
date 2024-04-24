@@ -144,7 +144,7 @@ namespace ProjectSomething.Content.CharacterCreation
             _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[_headIndex];
             _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[_bodyIndex];
 
-            if (_hairIndex == 0 && _eyeBrows.activeInHierarchy != true)
+            if (_hairIndex == 0)
             {
                 _eyeBrows.SetActive(true);
             }
