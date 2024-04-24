@@ -1,4 +1,5 @@
 using ProjectSomething.Data;
+using TMPro;
 using UnityEngine;
 
 namespace ProjectSomething.Content.CharacterCreation
@@ -15,6 +16,7 @@ namespace ProjectSomething.Content.CharacterCreation
         [SerializeField] private MeshFilter _headMesh;
         [SerializeField] private SkinnedMeshRenderer _bodyMesh;
         private ActorAttributesDatabase _selectedActorAttributesDatabase = null;
+        [SerializeField] private TMP_Text _hairIndexText;
         private int hairIndex = 0;
         
         private void Awake()
@@ -52,7 +54,10 @@ namespace ProjectSomething.Content.CharacterCreation
             {
                 hairIndex++;
             }
+
             _hairMesh.mesh = _selectedActorAttributesDatabase.ActorAttributesGroup[0].BodyTypeMeshes[hairIndex];
+
+            UpdateHairIndexText();
         }
 
         public void LeftButton()
@@ -65,7 +70,15 @@ namespace ProjectSomething.Content.CharacterCreation
             {
                 hairIndex--;
             }
+
             _hairMesh.mesh = _selectedActorAttributesDatabase.ActorAttributesGroup[0].BodyTypeMeshes[hairIndex];
+
+            UpdateHairIndexText();
+        }
+
+        public void UpdateHairIndexText()
+        {
+            _hairIndexText.SetText(hairIndex.ToString());
         }
     }
 }

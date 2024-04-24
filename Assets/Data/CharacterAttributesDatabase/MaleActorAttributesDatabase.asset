@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: MaleActorAttributesDatabase
   m_EditorClassIdentifier: 
   _actorAttributesGroup:
-  - {fileID: 11400000, guid: 4cca020bdad4848bfb0737ce41fa1bb5, type: 2}
-  _actorHair:
   - {fileID: 11400000, guid: b6a575059e4dd4a89a8e162eb4e1a35f, type: 2}

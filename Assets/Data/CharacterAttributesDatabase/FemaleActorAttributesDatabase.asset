@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: FemaleActorAttributesDatabase
   m_EditorClassIdentifier: 
   _actorAttributesGroup:
-  - {fileID: 11400000, guid: ab63d8f6dafb649778a32b8cd4b55e55, type: 2}
-  _actorHair:
   - {fileID: 11400000, guid: eea107095143441b0b2663deaca0ad8f, type: 2}
