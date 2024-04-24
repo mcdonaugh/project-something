@@ -7,46 +7,48 @@ namespace ProjectSomething.Content.CharacterCreation
     public class CharacterCreationController : MonoBehaviour
     {
         [SerializeField] private GameObject _playerCustomizationModel;
-        [SerializeField] private ActorAttributes _maleGenderAttributes;
-        [SerializeField] private ActorAttributes _femaleGenderAttributes;
-        [SerializeField] private ActorAttributesDatabase _maleActorAttributesDatabase;
-        [SerializeField] private ActorAttributesDatabase _femaleActorAttributesDatabase;
-        [SerializeField] private MeshFilter _eyeMesh;
+        [SerializeField] private ActorAttributesDatabase _ActorAttributesDatabase;
+        [SerializeField] private ActorAttributesDatabase _selectedActorAttributesDatabase;
+        [SerializeField] private MeshFilter _eyesMesh;
         [SerializeField] private MeshFilter _hairMesh;
         [SerializeField] private MeshFilter _headMesh;
         [SerializeField] private SkinnedMeshRenderer _bodyMesh;
-        private ActorAttributesDatabase _selectedActorAttributesDatabase = null;
         [SerializeField] private TMP_Text _hairIndexText;
+        [SerializeField] private TMP_Text _eyesIndexText;
+        [SerializeField] private TMP_Text _headIndexText;
         private int hairIndex = 0;
+        private int eyesIndex = 0;
+        private int headIndex = 0;
+        private int bodyIndex = 0;
         
         private void Awake()
         {
-            SetGenderMale();
+            SetAppearancePreset0();
         }
 
-        public void SetGenderFemale()
+        public void SetAppearancePreset0()
         {
-            _eyeMesh.mesh = _femaleGenderAttributes.BodyTypeMeshes[0];
-            _hairMesh.mesh = _femaleGenderAttributes.BodyTypeMeshes[1];
-            _headMesh.mesh = _femaleGenderAttributes.BodyTypeMeshes[2];
-            _bodyMesh.sharedMesh = _femaleGenderAttributes.BodyTypeMeshes[3];
-
-            _selectedActorAttributesDatabase = _femaleActorAttributesDatabase;
+            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[1];
+            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[0];
+            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[0];
+            _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[0];
+            
+            UpdateIndexText();
         }
 
-        public void SetGenderMale()
+        public void SetAppearancePreset1()
         {
-            _eyeMesh.mesh = _maleGenderAttributes.BodyTypeMeshes[0];
-            _hairMesh.mesh = _maleGenderAttributes.BodyTypeMeshes[1];
-            _headMesh.mesh = _maleGenderAttributes.BodyTypeMeshes[2];
-            _bodyMesh.sharedMesh = _maleGenderAttributes.BodyTypeMeshes[3];
+            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[6];
+            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[1];
+            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[1];
+            _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[1];
 
-            _selectedActorAttributesDatabase = _maleActorAttributesDatabase;
+            UpdateIndexText();
         }
 
-        public void RightButton()
+        public void SetHairNext()
         {
-            if (hairIndex >= _selectedActorAttributesDatabase.ActorAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (hairIndex >= _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1)
             {
                 hairIndex = 0;
             }
@@ -55,30 +57,96 @@ namespace ProjectSomething.Content.CharacterCreation
                 hairIndex++;
             }
 
-            _hairMesh.mesh = _selectedActorAttributesDatabase.ActorAttributesGroup[0].BodyTypeMeshes[hairIndex];
+            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[hairIndex];
 
-            UpdateHairIndexText();
+            UpdateIndexText();
         }
 
-        public void LeftButton()
+        public void SetHairPrev()
         {
             if (hairIndex <= 0)
             {
-                hairIndex = _selectedActorAttributesDatabase.ActorAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                hairIndex = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1;
             }
             else
             {
                 hairIndex--;
             }
 
-            _hairMesh.mesh = _selectedActorAttributesDatabase.ActorAttributesGroup[0].BodyTypeMeshes[hairIndex];
+            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[hairIndex];
 
-            UpdateHairIndexText();
+            UpdateIndexText();
         }
 
-        public void UpdateHairIndexText()
+        public void SetEyesNext()
         {
+            if (eyesIndex >= _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            {
+                eyesIndex = 0;
+            }
+            else
+            {
+                eyesIndex++;
+            }
+
+            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[eyesIndex];
+
+            UpdateIndexText();
+        }
+
+        public void SetEyesPrev()
+        {
+            if (eyesIndex <= 0)
+            {
+                eyesIndex = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1;
+            }
+            else
+            {
+                eyesIndex--;
+            }
+
+            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[eyesIndex];
+
+            UpdateIndexText();
+        }
+
+        public void SetHeadNext()
+        {
+            if (headIndex >= _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            {
+                headIndex = 0;
+            }
+            else
+            {
+                headIndex++;
+            }
+
+            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[headIndex];
+
+            UpdateIndexText();
+        }
+
+        public void SetHeadPrev()
+        {
+            if (headIndex <= 0)
+            {
+                headIndex = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1;
+            }
+            else
+            {
+                headIndex--;
+            }
+
+            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[headIndex];
+
+            UpdateIndexText();
+        }
+
+        public void UpdateIndexText()
+        {
+            _eyesIndexText.SetText(eyesIndex.ToString());
             _hairIndexText.SetText(hairIndex.ToString());
+            _headIndexText.SetText(headIndex.ToString());
         }
     }
 }

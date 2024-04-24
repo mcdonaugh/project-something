@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d5cd81d30be745059e36d4b8bccc1aa, type: 3}
-  m_Name: HairFemale
+  m_Name: Bodies
   m_EditorClassIdentifier: 
-  _bodyContainerNames: []
   _bodyTypeMeshes:
-  - {fileID: -980565089025030376, guid: 786a17c75156c8e4786d12f8277be84d, type: 3}
-  - {fileID: 2896206129867987585, guid: 69d20ab4bfe1ce943911b26d90174106, type: 3}
-  - {fileID: 1940878817928960238, guid: 13f17bad1b755194b8504370c89360e6, type: 3}
-  - {fileID: -3370502006796632997, guid: 56ef99e2a702dd74f80254a98f2b7602, type: 3}
+  - {fileID: -5158481650415248688, guid: 075789f0f3fa9414f90d335ae163f413, type: 3}
+  - {fileID: -8744108616789413529, guid: 075789f0f3fa9414f90d335ae163f413, type: 3}
