@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5cd81d30be745059e36d4b8bccc1aa, type: 3}
+  m_Name: FemaleGenderAttributes
+  m_EditorClassIdentifier: 
+  _bodyContainerNames:
+  - Eyes
+  - Hair
+  - Head
+  - Body
+  _bodyTypeMeshes:
+  - {fileID: 2226297027757695543, guid: d7bfabab30d2b9d4f849142c8375e86e, type: 3}
+  - {fileID: -3370502006796632997, guid: 56ef99e2a702dd74f80254a98f2b7602, type: 3}
+  - {fileID: -5884956233897991705, guid: b0474317296d62c4e9168d21234c8509, type: 3}
+  - {fileID: -8744108616789413529, guid: 075789f0f3fa9414f90d335ae163f413, type: 3}
