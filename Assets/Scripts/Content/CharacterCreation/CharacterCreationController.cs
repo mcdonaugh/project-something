@@ -16,10 +16,10 @@ namespace ProjectSomething.Content.CharacterCreation
         [SerializeField] private TMP_Text _hairIndexText;
         [SerializeField] private TMP_Text _eyesIndexText;
         [SerializeField] private TMP_Text _headIndexText;
-        private int hairIndex = 0;
-        private int eyesIndex = 0;
-        private int headIndex = 0;
-        private int bodyIndex = 0;
+        private int _hairIndex = 0;
+        private int _eyesIndex = 0;
+        private int _headIndex = 0;
+        private int _bodyIndex = 0;
         
         private void Awake()
         {
@@ -28,125 +28,133 @@ namespace ProjectSomething.Content.CharacterCreation
 
         public void SetAppearancePreset0()
         {
-            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[1];
-            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[0];
-            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[0];
-            _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[0];
-            
+            _hairIndex = 1;
+            _eyesIndex = 0;
+            _headIndex = 0;
+            _bodyIndex = 0;
+            SetAppearance();
             UpdateIndexText();
         }
 
         public void SetAppearancePreset1()
         {
-            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[6];
-            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[1];
-            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[1];
-            _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[1];
-
+            _hairIndex = 6;
+            _eyesIndex = 1;
+            _headIndex = 1;
+            _bodyIndex = 1;
+            SetAppearance();
             UpdateIndexText();
         }
 
         public void SetHairNext()
         {
-            if (hairIndex >= _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (_hairIndex >= _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1)
             {
-                hairIndex = 0;
+                _hairIndex = 0;
             }
             else
             {
-                hairIndex++;
+                _hairIndex++;
             }
 
-            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[hairIndex];
+            SetAppearance();
 
             UpdateIndexText();
         }
 
         public void SetHairPrev()
         {
-            if (hairIndex <= 0)
+            if (_hairIndex <= 0)
             {
-                hairIndex = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                _hairIndex = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1;
             }
             else
             {
-                hairIndex--;
+                _hairIndex--;
             }
 
-            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[hairIndex];
+            SetAppearance();
 
             UpdateIndexText();
         }
 
         public void SetEyesNext()
         {
-            if (eyesIndex >= _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (_eyesIndex >= _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1)
             {
-                eyesIndex = 0;
+                _eyesIndex = 0;
             }
             else
             {
-                eyesIndex++;
+                _eyesIndex++;
             }
 
-            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[eyesIndex];
+            SetAppearance();
 
             UpdateIndexText();
         }
 
         public void SetEyesPrev()
         {
-            if (eyesIndex <= 0)
+            if (_eyesIndex <= 0)
             {
-                eyesIndex = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                _eyesIndex = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1;
             }
             else
             {
-                eyesIndex--;
+                _eyesIndex--;
             }
 
-            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[eyesIndex];
+            SetAppearance();
 
             UpdateIndexText();
         }
 
         public void SetHeadNext()
         {
-            if (headIndex >= _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (_headIndex >= _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1)
             {
-                headIndex = 0;
+                _headIndex = 0;
             }
             else
             {
-                headIndex++;
+                _headIndex++;
             }
 
-            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[headIndex];
+            SetAppearance();
 
             UpdateIndexText();
         }
 
         public void SetHeadPrev()
         {
-            if (headIndex <= 0)
+            if (_headIndex <= 0)
             {
-                headIndex = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                _headIndex = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1;
             }
             else
             {
-                headIndex--;
+                _headIndex--;
             }
 
-            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[headIndex];
+            SetAppearance();
 
             UpdateIndexText();
         }
 
+        public void SetAppearance()
+        {
+            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[_hairIndex];
+            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[_eyesIndex];
+            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[_headIndex];
+            _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[_bodyIndex];
+        }
+
         public void UpdateIndexText()
         {
-            _eyesIndexText.SetText(eyesIndex.ToString());
-            _hairIndexText.SetText(hairIndex.ToString());
-            _headIndexText.SetText(headIndex.ToString());
+            _eyesIndexText.SetText(_eyesIndex.ToString());
+            _hairIndexText.SetText(_hairIndex.ToString());
+            _headIndexText.SetText(_headIndex.ToString());
         }
     }
 }
