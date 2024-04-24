@@ -13,6 +13,7 @@ namespace ProjectSomething.Content.CharacterCreation
         [SerializeField] private MeshFilter _hairMesh;
         [SerializeField] private MeshFilter _headMesh;
         [SerializeField] private SkinnedMeshRenderer _bodyMesh;
+        [SerializeField] private GameObject _eyeBrows;
         [SerializeField] private TMP_Text _hairIndexText;
         [SerializeField] private TMP_Text _eyesIndexText;
         [SerializeField] private TMP_Text _headIndexText;
@@ -58,7 +59,6 @@ namespace ProjectSomething.Content.CharacterCreation
             }
 
             SetAppearance();
-
             UpdateIndexText();
         }
 
@@ -74,7 +74,6 @@ namespace ProjectSomething.Content.CharacterCreation
             }
 
             SetAppearance();
-
             UpdateIndexText();
         }
 
@@ -90,7 +89,6 @@ namespace ProjectSomething.Content.CharacterCreation
             }
 
             SetAppearance();
-
             UpdateIndexText();
         }
 
@@ -106,7 +104,6 @@ namespace ProjectSomething.Content.CharacterCreation
             }
 
             SetAppearance();
-
             UpdateIndexText();
         }
 
@@ -122,7 +119,6 @@ namespace ProjectSomething.Content.CharacterCreation
             }
 
             SetAppearance();
-
             UpdateIndexText();
         }
 
@@ -138,7 +134,6 @@ namespace ProjectSomething.Content.CharacterCreation
             }
 
             SetAppearance();
-
             UpdateIndexText();
         }
 
@@ -148,6 +143,15 @@ namespace ProjectSomething.Content.CharacterCreation
             _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[_eyesIndex];
             _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[_headIndex];
             _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[_bodyIndex];
+
+            if (_hairIndex == 0 && _eyeBrows.activeInHierarchy != true)
+            {
+                _eyeBrows.SetActive(true);
+            }
+            else
+            {
+                _eyeBrows.SetActive(false);
+            }
         }
 
         public void UpdateIndexText()

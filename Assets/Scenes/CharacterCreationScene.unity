@@ -632,7 +632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: -30}
+  m_AnchoredPosition: {x: 269, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348667625
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -766,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: -30}
+  m_AnchoredPosition: {x: 269, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363164753
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
       - m_Target: {fileID: 606991330}
         m_TargetAssemblyTypeName: ProjectSomething.Content.CharacterCreation.CharacterCreationController,
           Assembly-CSharp
-        m_MethodName: SetBodyTypeNext
+        m_MethodName: SetAppearancePreset1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1436,7 +1436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: -30}
+  m_AnchoredPosition: {x: 269, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510934450
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1572,10 +1572,10 @@ MonoBehaviour:
   _hairMesh: {fileID: 1800511805}
   _headMesh: {fileID: 163905337}
   _bodyMesh: {fileID: 766018438}
+  _eyeBrows: {fileID: 1009419410}
   _hairIndexText: {fileID: 425843994}
   _eyesIndexText: {fileID: 737598350}
   _headIndexText: {fileID: 464547047}
-  _bodyIndexText: {fileID: 0}
 --- !u!4 &606991331
 Transform:
   m_ObjectHideFlags: 0
@@ -2142,6 +2142,11 @@ RectTransform:
   m_AnchoredPosition: {x: 106, y: -197.40002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1009419410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4718281522089177627, guid: 3d50a706424b6428da94f35515621e6e, type: 3}
+  m_PrefabInstance: {fileID: 1099062268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1014736994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,6 +2474,18 @@ PrefabInstance:
     - target: {fileID: 3535938109643494361, guid: 3d50a706424b6428da94f35515621e6e, type: 3}
       propertyPath: m_Name
       value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718281522089177627, guid: 3d50a706424b6428da94f35515621e6e, type: 3}
+      propertyPath: m_Name
+      value: Eyebrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718281522089177627, guid: 3d50a706424b6428da94f35515621e6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861933888952007876, guid: 3d50a706424b6428da94f35515621e6e, type: 3}
+      propertyPath: m_Name
+      value: HeadArmor
       objectReference: {fileID: 0}
     - target: {fileID: 5998124962234447524, guid: 3d50a706424b6428da94f35515621e6e, type: 3}
       propertyPath: m_Name
@@ -3108,7 +3125,7 @@ MonoBehaviour:
       - m_Target: {fileID: 606991330}
         m_TargetAssemblyTypeName: ProjectSomething.Content.CharacterCreation.CharacterCreationController,
           Assembly-CSharp
-        m_MethodName: SetBodyTypePrev
+        m_MethodName: SetAppearancePreset0
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
