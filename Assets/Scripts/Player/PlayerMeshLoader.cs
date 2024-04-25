@@ -20,19 +20,20 @@ namespace ProjectSomething.Player
 
         public void SetPlayerMeshes(GameObject player)
         {
-            // _eyesMesh = player.transform.Find("Eyes").GetComponent<MeshFilter>();
-            // _hairMesh = player.transform.Find("Hair").GetComponent<MeshFilter>();
-            // _headMesh = player.transform.Find("Face").GetComponent<MeshFilter>();
+            _eyesMesh = player.transform.Find("Character Model/root/pelvis/spine_01/spine_02/spine_03/neck_01/head/Eyes").GetComponent<MeshFilter>();
+            _hairMesh = player.transform.Find("Character Model/root/pelvis/spine_01/spine_02/spine_03/neck_01/head/Hair").GetComponent<MeshFilter>();
+            _headMesh = player.transform.Find("Character Model/root/pelvis/spine_01/spine_02/spine_03/neck_01/head/Face").GetComponent<MeshFilter>();
             _bodyMesh = player.transform.Find("Character Model/Body").GetComponent<SkinnedMeshRenderer>();
+
+            Debug.Log(_hairMesh);
         }
 
         public void UpdatePlayerMesh()
         {
-            // _eyesMesh.mesh = _actorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[_playerSelectedActorAttributes.EyesIndex];
-            // _hairMesh.mesh = _actorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[_playerSelectedActorAttributes.HairIndex];
-            // _headMesh.mesh = _actorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[_playerSelectedActorAttributes.HeadIndex];
-            // _bodyMesh.sharedMesh = _actorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[_playerSelectedActorAttributes.BodyIndex];
-            Debug.Log(_bodyMesh);
+            _eyesMesh.mesh = _actorAttributesDatabase.EyesAttributesGroup.BodyTypeMeshes[_playerSelectedActorAttributes.EyesIndex];
+            _hairMesh.mesh = _actorAttributesDatabase.HairAttributesGroup.BodyTypeMeshes[_playerSelectedActorAttributes.HairIndex];
+            _headMesh.mesh = _actorAttributesDatabase.HeadAttributesGroup.BodyTypeMeshes[_playerSelectedActorAttributes.HeadIndex];
+            _bodyMesh.sharedMesh = _actorAttributesDatabase.BodyAttributesGroup.BodyTypeMeshes[_playerSelectedActorAttributes.BodyIndex];
         }
     }
 }

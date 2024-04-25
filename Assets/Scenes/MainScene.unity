@@ -250,7 +250,8 @@ MonoBehaviour:
   _playerData: {fileID: 11400000, guid: 4aa286f69105447e4a8a531c148a6697, type: 2}
   _cameraController: {fileID: 963194229}
   _gameStateController: {fileID: 1164850458}
-  _selectedActorAttributesDatabase: {fileID: 11400000, guid: 5fc3f2df99fd74b41885754fbaf02b99, type: 2}
+  _playerSelectedActorAttributes: {fileID: 11400000, guid: 760092600c06d4244b55056eeaed0531, type: 2}
+  _actorAttributesDatabase: {fileID: 11400000, guid: 5fc3f2df99fd74b41885754fbaf02b99, type: 2}
 --- !u!4 &725439701
 Transform:
   m_ObjectHideFlags: 0
