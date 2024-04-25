@@ -1,6 +1,7 @@
 using ProjectSomething.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProjectSomething.Content.CharacterCreation
 {
@@ -8,7 +9,6 @@ namespace ProjectSomething.Content.CharacterCreation
     {
         [SerializeField] private GameObject _playerCustomizationModel;
         [SerializeField] private ActorAttributesDatabase _ActorAttributesDatabase;
-        [SerializeField] private ActorAttributesDatabase _selectedActorAttributesDatabase;
         [SerializeField] private MeshFilter _eyesMesh;
         [SerializeField] private MeshFilter _hairMesh;
         [SerializeField] private MeshFilter _headMesh;
@@ -17,6 +17,7 @@ namespace ProjectSomething.Content.CharacterCreation
         [SerializeField] private TMP_Text _hairIndexText;
         [SerializeField] private TMP_Text _eyesIndexText;
         [SerializeField] private TMP_Text _headIndexText;
+        [SerializeField] private PlayerSelectedActorAttributes _playerSelectedActorAttributes;
         private int _hairIndex = 0;
         private int _eyesIndex = 0;
         private int _headIndex = 0;
@@ -49,7 +50,7 @@ namespace ProjectSomething.Content.CharacterCreation
 
         public void SetHairNext()
         {
-            if (_hairIndex >= _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (_hairIndex >= _ActorAttributesDatabase.HairAttributesGroup.BodyTypeMeshes.Length - 1)
             {
                 _hairIndex = 0;
             }
@@ -66,7 +67,7 @@ namespace ProjectSomething.Content.CharacterCreation
         {
             if (_hairIndex <= 0)
             {
-                _hairIndex = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                _hairIndex = _ActorAttributesDatabase.HairAttributesGroup.BodyTypeMeshes.Length - 1;
             }
             else
             {
@@ -79,7 +80,7 @@ namespace ProjectSomething.Content.CharacterCreation
 
         public void SetEyesNext()
         {
-            if (_eyesIndex >= _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (_eyesIndex >= _ActorAttributesDatabase.EyesAttributesGroup.BodyTypeMeshes.Length - 1)
             {
                 _eyesIndex = 0;
             }
@@ -96,7 +97,7 @@ namespace ProjectSomething.Content.CharacterCreation
         {
             if (_eyesIndex <= 0)
             {
-                _eyesIndex = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                _eyesIndex = _ActorAttributesDatabase.EyesAttributesGroup.BodyTypeMeshes.Length - 1;
             }
             else
             {
@@ -109,7 +110,7 @@ namespace ProjectSomething.Content.CharacterCreation
 
         public void SetHeadNext()
         {
-            if (_headIndex >= _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1)
+            if (_headIndex >= _ActorAttributesDatabase.HeadAttributesGroup.BodyTypeMeshes.Length - 1)
             {
                 _headIndex = 0;
             }
@@ -126,7 +127,7 @@ namespace ProjectSomething.Content.CharacterCreation
         {
             if (_headIndex <= 0)
             {
-                _headIndex = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes.Length - 1;
+                _headIndex = _ActorAttributesDatabase.HeadAttributesGroup.BodyTypeMeshes.Length - 1;
             }
             else
             {
@@ -139,10 +140,10 @@ namespace ProjectSomething.Content.CharacterCreation
 
         public void SetAppearance()
         {
-            _hairMesh.mesh = _selectedActorAttributesDatabase.HairAttributesGroup[0].BodyTypeMeshes[_hairIndex];
-            _eyesMesh.mesh = _selectedActorAttributesDatabase.EyesAttributesGroup[0].BodyTypeMeshes[_eyesIndex];
-            _headMesh.mesh = _selectedActorAttributesDatabase.HeadAttributesGroup[0].BodyTypeMeshes[_headIndex];
-            _bodyMesh.sharedMesh = _selectedActorAttributesDatabase.BodyAttributesGroup[0].BodyTypeMeshes[_bodyIndex];
+            _hairMesh.mesh = _ActorAttributesDatabase.HairAttributesGroup.BodyTypeMeshes[_hairIndex];
+            _eyesMesh.mesh = _ActorAttributesDatabase.EyesAttributesGroup.BodyTypeMeshes[_eyesIndex];
+            _headMesh.mesh = _ActorAttributesDatabase.HeadAttributesGroup.BodyTypeMeshes[_headIndex];
+            _bodyMesh.sharedMesh = _ActorAttributesDatabase.BodyAttributesGroup.BodyTypeMeshes[_bodyIndex];
 
             if (_hairIndex == 0)
             {
@@ -159,6 +160,15 @@ namespace ProjectSomething.Content.CharacterCreation
             _eyesIndexText.SetText(_eyesIndex.ToString());
             _hairIndexText.SetText(_hairIndex.ToString());
             _headIndexText.SetText(_headIndex.ToString());
+        }
+        
+        public void ConfirmSelection()
+        {
+            _playerSelectedActorAttributes.SetHairIndex(_hairIndex);
+            _playerSelectedActorAttributes.SetEyesIndex(_eyesIndex);
+            _playerSelectedActorAttributes.SetHeadIndex(_headIndex);
+            _playerSelectedActorAttributes.SetBodyIndex(_bodyIndex);
+            SceneManager.LoadScene("MainScene");
         }
     }
 }

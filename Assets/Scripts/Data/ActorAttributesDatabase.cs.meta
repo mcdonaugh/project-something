@@ -3,7 +3,11 @@ guid: 065e6ba36b2334caa9698911bb7ac9f3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _hairAttributesGroup: {fileID: 11400000, guid: eea107095143441b0b2663deaca0ad8f, type: 2}
+  - _headAttributesGroup: {fileID: 11400000, guid: b08e52273c60e430e82fae3607fd4309, type: 2}
+  - _eyesAttributesGroup: {fileID: 11400000, guid: 020f42a90d4ad49bc95ab67ba0b61bbc, type: 2}
+  - _bodyAttributesGroup: {fileID: 11400000, guid: ff5a2c47288e849bdb58ab1655722208, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

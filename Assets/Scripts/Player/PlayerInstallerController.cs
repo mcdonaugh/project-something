@@ -1,6 +1,7 @@
 using UnityEngine;
 using ProjectSomething.Interfaces;
 using ProjectSomething.Controllers;
+using ProjectSomething.Data;
 
 namespace ProjectSomething.Player
 {
@@ -10,6 +11,9 @@ namespace ProjectSomething.Player
         [SerializeField] private ActorData _playerData;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private GameStateController _gameStateController;
+        [SerializeField] private PlayerSelectedActorAttributes _playerSelectedActorAttributes;
+        [SerializeField] private ActorAttributesDatabase _actorAttributesDatabase;
+
         private void Awake()
         {
             IInput playerController = new PlayerInputController();
@@ -18,6 +22,9 @@ namespace ProjectSomething.Player
             _gameStateController.SetPlayerInputController((PlayerInputController)playerController);
             _playerController.SetActorData(_playerData);
             _cameraController.SetActorController(_playerController);
+            PlayerMeshLoader playerMeshLoader = new PlayerMeshLoader(_playerSelectedActorAttributes, _actorAttributesDatabase);
+            playerMeshLoader.SetPlayerMeshes(_playerController.gameObject);
+            playerMeshLoader.UpdatePlayerMesh();
         }
     }
 }

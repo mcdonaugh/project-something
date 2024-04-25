@@ -7,6 +7,7 @@ namespace ProjectSomething.Player
     public class PlayerController : ActorController
     {
         private IInteractable _interactable = null;
+        
         new private PlayerInputController _input = new PlayerInputController();
         private void Update()
         {
@@ -31,6 +32,5 @@ namespace ProjectSomething.Player
         {
             _interactable = null;
         }
-
     }
 }
